@@ -178,9 +178,11 @@ def findAssets(metadata, media_title, paths, type, parts=[]):
   if type == 'season':
     search_tuples += [['season-?0?%s[-a-z]?(-poster)?' % metadata.index, metadata.posters, config.IMAGE_EXTS, False]]
     search_tuples += [['season-?0?%s-banner[-a-z]?' % metadata.index, metadata.banners, config.IMAGE_EXTS, False]]
+    search_tuples += [['season-?0?%s-fanart[-a-z]?' % metadata.index, metadata.art, config.IMAGE_EXTS, False]]
     if int(metadata.index) == 0: # Season zero, also look for Frodo-compliant 'specials' artwork.
       search_tuples += [['season-specials-poster', metadata.posters, config.IMAGE_EXTS, False]]
       search_tuples += [['season-specials-banner', metadata.banners, config.IMAGE_EXTS, False]]
+      search_tuples += [['season-specials-fanart', metadata.art, config.IMAGE_EXTS, False]]
   elif type == 'show':
     search_tuples += [['(show|poster|folder)-?[0-9]?', metadata.posters, config.IMAGE_EXTS, False]]
     search_tuples += [['banner-?[0-9]?', metadata.banners, config.IMAGE_EXTS, False]]
